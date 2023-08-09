@@ -1,0 +1,27 @@
+.account-btn {
+  display: flex;
+  align-items: center;
+}
+.login-btn {
+  color: #fff !important;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.login-btn:hover {
+  color: #cf843c !important;
+}
+
+.user-name {
+  color: #fff;
+  text-transform: capitalize;
+  margin-left: 4px;
+}
+
+.user-name:hover {
+  color: #cf843c !important;
+}
+
+.profile-btn {
+  display: flex;
+  align-items: center;
+}
