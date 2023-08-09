@@ -38,7 +38,7 @@
   background-color: #cf843c !important;
 }
 .link {
-  color: #cf843c !important;
+  color: white !important;
   text-align: end;
 }
 button:disabled {
@@ -58,20 +58,25 @@ form {
   margin: 0 auto !important;
 }
 .login-header {
-  max-width: 684px;
-  margin: 0 auto;
-  color: #cf843c;
+  max-width: 100%;
+  color: #41604B !important;
   padding-bottom: 14px;
+  display: flex;
+  justify-content: center;
 }
 .signup-header {
-  max-width: 684px;
+  max-width: 100%;
   margin: 0 auto;
-  color: #cf843c;
+  color: #41604B !important;
+  display: flex;
+  justify-content: center;
 }
 .class-mail {
-  color: #cf843c !important;
+  color: white !important;
+  margin-bottom: 10px;
 }
 
 .class-pass {
-  color: #cf843c !important;
+  color: white !important;
+  margin-bottom: 10px;
 }
