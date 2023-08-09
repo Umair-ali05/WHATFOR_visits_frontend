@@ -105,7 +105,7 @@ form input {
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
+  grid-gap: 19px;
 }
 .grid3 {
   display: grid;
