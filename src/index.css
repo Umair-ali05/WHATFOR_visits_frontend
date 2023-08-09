@@ -4,9 +4,12 @@
   margin: 0;
   box-sizing: border-box;
 }
+#root{
+  background: #6BAB96;
+}
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
   color: #000;
 }
 h1,
@@ -15,6 +18,7 @@ h2 {
 }
 h3 {
   font-weight: 500;
+  color: white;
 }
 ul,
 li,
@@ -28,6 +32,7 @@ textarea {
   cursor: pointer;
   text-decoration: none;
   list-style-type: none;
+  color: white;
 }
 ::placeholder {
   font-size: 17px;
@@ -43,21 +48,21 @@ textarea {
   align-items: center;
 }
 p {
-  color: #5a5a5a;
+  color: white;
   font-size: 15px;
 }
 label {
-  color: #999;
+  color: white;
   font-size: 13px;
 }
-select,
+/* select,
 form,
 .boxItems {
   border: 1px solid #e6e6e6;
   border-radius: 12px;
   padding: 20px;
   background: #fff;
-}
+} */
 form {
   display: flex;
   flex-direction: column;
@@ -66,14 +71,15 @@ form {
   padding: 40px;
 }
 form span {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  color: white;
 }
 form textarea,
 .accountInfo .right input,
 form select,
 form input {
   border: 1px solid #212121;
-  border-radius: 6px;
+  border-radius: 10px;
   color: #212121;
   font-size: 15px;
   min-height: 44px;
@@ -81,13 +87,14 @@ form input {
   transition: border-color 0.2s ease;
   width: 100%;
   margin-bottom: 30px;
+  background: white;
 }
 
 .button {
-  background: #212121;
+  background: #41604B !important;
   border: 1px solid;
-
-  border-radius: 6px;
+  border-color: #41604B  !important;
+  border-radius: 10px;
   color: #fff;
   cursor: pointer;
   font-weight: 400;
