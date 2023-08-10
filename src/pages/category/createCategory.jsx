@@ -50,14 +50,9 @@ export const CreateCategory = () => {
     <>
       <section className='newPost'>
         <div className='container boxItems'>
-          {/* <div className='img '>
-            {file && (
-              <img
-                src={URL.createObjectURL(file)}
-                alt='images'
-              />
-            )}
-          </div> */}
+          <div className='login-header'>
+            <h1>Add Category</h1>
+          </div>
           <form onSubmit={handleSubmit}>
             <div className='inputfile flexCenter'>
               <div
