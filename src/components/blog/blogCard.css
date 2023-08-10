@@ -1,17 +1,17 @@
 /** @format */
-.maindiv{
-display: flex;
+.maindiv {
+  display: flex;
 }
 .imagediv img {
-    max-width: 400px;
-    min-width: 400px;
-    max-height: 275px;
+  max-width: 400px;
+  min-width: 400px;
+  max-height: 275px;
 }
-.paragraphdiv{
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-margin-left: 10px;
+.paragraphdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 10px;
 }
 
 .no-record-found {
@@ -40,6 +40,14 @@ margin-left: 10px;
   background-color: orange; */
 }
 
+.three-line-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .card {
   display: flex;
   margin: 30px;
@@ -60,7 +68,7 @@ margin-left: 10px;
   width: auto;
   height: auto;
   flex-shrink: 0;
-  color: #FFF;
+  color: #fff;
   font-family: Montserrat;
   font-size: 21.98px;
   font-style: normal;
@@ -70,13 +78,13 @@ margin-left: 10px;
   margin-right: auto;
 }
 
-.card-desc  {
+.card-desc {
   /* text-align: start;
   color: #fff !important; */
   width: auto !important;
   height: auto !important;
   flex-shrink: 0;
-  color: #FFF !important;
+  color: #fff !important;
   font-family: Montserrat;
   font-size: 21.99px;
   font-style: normal;
@@ -90,7 +98,7 @@ margin-left: 10px;
   width: auto;
   height: auto;
   flex-shrink: 0;
-  color: #FFF !important;
+  color: #fff !important;
   font-family: Montserrat;
   font-size: 17.19px;
   font-style: normal;

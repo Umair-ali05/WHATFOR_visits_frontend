@@ -33,11 +33,13 @@ const CardItem = ({ item }) => {
             rippleTag='div'
             className='bg-image hover-overlay'
           > */}
-            <div className='imagediv'>
-              <img src={item.placeImageUrl}
-              alt='no image to display' />
-              </div>
-            {/* <a>
+          <div className='imagediv'>
+            <img
+              src={item.placeImageUrl}
+              alt='no image to display'
+            />
+          </div>
+          {/* <a>
               <div
                 className='mask'
                 style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}
@@ -49,7 +51,9 @@ const CardItem = ({ item }) => {
 
             <MDBCardText className='card-name'>{item.placeName}</MDBCardText>
             <MDBCardText className='card-desc'>
-              {item.placeDescription}
+              <div className='three-line-description'>
+                {item.placeDescription}
+              </div>
             </MDBCardText>
           </div>
         </div>
