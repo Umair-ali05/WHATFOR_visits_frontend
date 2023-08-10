@@ -29,7 +29,9 @@ nav a {
 }
 .profile .image {
   display: flex;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 14px;
 }
 .profile .image img {
   margin-right: 20px;
@@ -48,11 +50,12 @@ nav a {
 .openProfile {
   color: #000;
   box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
+  border-radius: 20px;
   position: absolute;
   top: 80px;
   right: 10px;
   width: 250px;
-  background: #fff;
+  background: white;
 }
 .openProfile .box {
   display: flex;
@@ -61,13 +64,14 @@ nav a {
   margin-top: 10px;
   padding: 5px;
   transition: 0.5s;
+  margin-left: 15px;
 }
 .openProfile .icon {
   font-size: 20px;
   margin-right: 20px;
 }
 .openProfile h4 {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
 }
 .openProfile button:hover {

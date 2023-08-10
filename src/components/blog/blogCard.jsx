@@ -27,33 +27,32 @@ const CardItem = ({ item }) => {
         className='card-btn'
         onClick={handleCardClick}
       >
-        <MDBCard>
-          <MDBRipple
+        <div className='maindiv'>
+          {/* <MDBRipple
             rippleColor='light'
             rippleTag='div'
             className='bg-image hover-overlay'
-          >
-            <MDBCardImage
-              src={item.placeImageUrl}
-              alt='no image to display'
-              className='image-size'
-            />
-            <a>
+          > */}
+            <div className='imagediv'>
+              <img src={item.placeImageUrl}
+              alt='no image to display' />
+              </div>
+            {/* <a>
               <div
                 className='mask'
                 style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}
               ></div>
-            </a>
-          </MDBRipple>
-          <MDBCardBody>
+            </a> */}
+          {/* </MDBRipple> */}
+          <div className='paragraphdiv'>
             <MDBCardTitle className='c-title'>{item.placeType}</MDBCardTitle>
 
             <MDBCardText className='card-name'>{item.placeName}</MDBCardText>
-            <MDBCardText className='card-name'>
+            <MDBCardText className='card-desc'>
               {item.placeDescription}
             </MDBCardText>
-          </MDBCardBody>
-        </MDBCard>
+          </div>
+        </div>
       </button>
     </div>
   );

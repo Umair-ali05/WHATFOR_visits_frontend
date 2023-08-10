@@ -32,10 +32,22 @@ textarea {
   cursor: pointer;
   text-decoration: none;
   list-style-type: none;
-  color: white;
+  color: #6BAB96;
 }
 ::placeholder {
   font-size: 17px;
+}
+.p-title p{
+  color: white !important;
+  margin-bottom: 10px !important;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+.inputfile p{
+  color: #41604B !important;
+}
+.description p{
+  color: white !important;
 }
 .flex {
   display: flex;
@@ -44,15 +56,16 @@ textarea {
 }
 .flexCenter {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+  /* align-items: center; */
 }
 p {
   color: white;
   font-size: 15px;
 }
 label {
-  color: white;
+  color: #6BAB96;
   font-size: 13px;
 }
 /* select,

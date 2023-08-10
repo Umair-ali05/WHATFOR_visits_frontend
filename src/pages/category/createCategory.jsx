@@ -57,10 +57,11 @@ export const CreateCategory = () => {
             <div className='inputfile flexCenter'>
               <div
                 style={{
-                  width: '200px',
-                  height: '200px',
-                  backgroundColor: 'grey',
+                  width: '230px',
+                  height: '215px',
+                  backgroundColor: 'White',
                   cursor: 'pointer',
+                  borderRadius: '15px',
                 }}
                 onClick={handleClick}
               >

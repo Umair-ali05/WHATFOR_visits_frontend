@@ -1,9 +1,19 @@
 /** @format */
-
-.image-size {
-  max-width: 400px;
-  min-width: 400px;
+.maindiv{
+display: flex;
 }
+.imagediv img {
+    max-width: 400px;
+    min-width: 400px;
+    max-height: 275px;
+}
+.paragraphdiv{
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+margin-left: 10px;
+}
+
 .no-record-found {
   text-transform: capitalize;
   text-align: center;
@@ -24,10 +34,10 @@
 .card-btn {
   display: flex;
   align-items: center;
-  border: 1px solid transparent;
+  /* border: 1px solid transparent;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-  background-color: orange;
+  background-color: orange; */
 }
 
 .card {
@@ -44,18 +54,50 @@
 }
 
 .c-title {
-  font-size: 16px;
+  /* font-size: 16px;
   text-align: start;
-  color: #fff !important;
+  color: #fff !important; */
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 21.98px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-right: auto;
 }
 
-.card-text {
-  text-align: start;
-  color: #fff !important;
+.card-desc  {
+  /* text-align: start;
+  color: #fff !important; */
+  width: auto !important;
+  height: auto !important;
+  flex-shrink: 0;
+  color: #FFF !important;
+  font-family: Montserrat;
+  font-size: 21.99px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-right: auto;
 }
 
 .card-name {
-  color: #fff !important;
+  /* color: #fff !important; */
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  color: #FFF !important;
+  font-family: Montserrat;
+  font-size: 17.19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-right: auto;
 }
 
 .go-back-btn {
