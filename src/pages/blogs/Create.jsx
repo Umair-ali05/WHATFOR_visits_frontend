@@ -84,6 +84,9 @@ export const Create = () => {
   return (
     <>
       <section className='newPost'>
+        <div className='login-header'>
+          <h1>Add Place</h1>
+        </div>
         <div className='container boxItems'>
           <form onSubmit={handleSubmit}>
             <div className='inputfile flexCenter'>
