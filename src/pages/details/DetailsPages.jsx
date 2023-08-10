@@ -30,6 +30,8 @@ export const DetailsPages = () => {
   const [title, setTitle] = useState();
   const [name, setName] = useState();
   const [desc, setDesc] = useState();
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
   const [rating, setRating] = useState();
   const [image, setImage] = useState();
   const [comments, setComments] = useState([]);
@@ -45,6 +47,8 @@ export const DetailsPages = () => {
     setPost(res.data);
     setName(res.data.post.post.placeName);
     setStars(res.data.post.post);
+    setCountry(res.data.post.post.placeCountry);
+    setCity(res.data.post.post.placeCity);
     setTitle(res.data.post.post.placeType);
     setDesc(res.data.post.post.placeDescription);
     setRating(res.data.post.post.rated);
@@ -101,6 +105,8 @@ export const DetailsPages = () => {
                   <GetRating rating={stars} />
                 </div>
                 <div className='page-name'>{name}</div>
+                <div className='user-roll-name'>{country}</div>
+                <div className='user-roll-name'>{city}</div>
                 <div className='page-des'>{desc}</div>
                 <div>
                   {comments.length !== 0 ? (
@@ -182,6 +188,8 @@ export const DetailsPages = () => {
                   )}
                 </div>
                 <div className='user-roll-name'>{name}</div>
+                <div className='user-roll-name'>{country}</div>
+                <div className='user-roll-name'>{city}</div>
                 <div className='user-roll-desc'>{desc}</div>
                 <div>
                   {comments.length !== 0 ? (

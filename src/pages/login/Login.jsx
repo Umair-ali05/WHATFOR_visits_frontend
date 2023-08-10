@@ -43,15 +43,8 @@ export const Login = () => {
     <>
       <section className='login'>
         <div className='container'>
-          <div className='back'>
-            <img
-              className='hero-section-img'
-              src={login}
-              alt=''
-            />
-          </div>
           <div className='login-header'>
-            <h1>Log into your Account</h1>
+            <h1>Log In</h1>
           </div>
 
           <form onSubmit={handleSubmit}>
@@ -78,7 +71,7 @@ export const Login = () => {
               to='/register'
               className='link'
             >
-              dont have account? Sign up
+              Don't have account? Sign up
             </Link>
           </form>
         </div>

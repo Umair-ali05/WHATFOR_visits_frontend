@@ -46,20 +46,11 @@ const CardItem = ({ item }) => {
             </a>
           </MDBRipple>
           <MDBCardBody>
-            <MDBCardTitle className='c-title'>
-              Catagory: {item.placeType}
-            </MDBCardTitle>
-            <MDBCardText>
-              <GetRating rating={item} />
-            </MDBCardText>
+            <MDBCardTitle className='c-title'>{item.placeType}</MDBCardTitle>
+
+            <MDBCardText className='card-name'>{item.placeName}</MDBCardText>
             <MDBCardText className='card-name'>
-              Name: {item.placeName}
-            </MDBCardText>
-            <MDBCardText className='card-name'>
-              Country: {item.placeCountry}
-            </MDBCardText>
-            <MDBCardText className='card-name'>
-              City: {item.placeCity}
+              {item.placeDescription}
             </MDBCardText>
           </MDBCardBody>
         </MDBCard>
@@ -96,11 +87,15 @@ export const Card = () => {
         Toast.successToastMessage(res.data.posts.message);
         setRecommended(res.data.posts.post[0].recommended);
         setGeneral(res.data.posts.post[0].general);
-      } else {
-        setError(res.data.user.message);
       }
     } catch (error) {
-      setError(error.response?.data?.err?.message || error.message);
+      if (error.response.data) {
+        Toast.errorToastMessage(error.response.data.err.message);
+        history.replace('/');
+      } else {
+        Toast.errorToastMessage(error.message);
+        history.replace('/');
+      }
     }
   };
 
@@ -108,33 +103,13 @@ export const Card = () => {
     fetchPost();
   }, [location.pathname]);
 
-  const navigateToHome = () => {
-    history.replace('/');
-  };
-
   return (
     <>
       <div className='signup-header'>
         <h1>Recommended</h1>
       </div>
-      {error ? (
-        <div className='no-record'>
-          <div className='back-btn'>
-            <button
-              className='go-back-btn'
-              onClick={navigateToHome}
-            >
-              <h1>Back</h1>
-            </button>
-          </div>
-          <div className='no-rec'>
-            <span className='no-record-found'>Record not found</span>
-          </div>
-        </div>
-      ) : (
-        <CardSection items={recommended} />
-      )}
-
+      (
+      <CardSection items={recommended} />)
       <div className='signup-header'>
         <h1>General</h1>
       </div>

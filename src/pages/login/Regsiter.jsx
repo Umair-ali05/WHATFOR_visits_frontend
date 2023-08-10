@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import './login.css';
 import axios from 'axios';
 import login from '../../assets/images/hero-section-logo.svg';
+import { Link } from 'react-router-dom';
 import Toast from '../../utils/utils';
 import baseUrl from '../../urlConfigFile';
 
@@ -44,15 +45,8 @@ export const Regsiter = () => {
     <>
       <section className='login'>
         <div className='container'>
-          <div className='back'>
-            <img
-              className='hero-section-img'
-              src={login}
-              alt=''
-            />
-          </div>
           <div className='signup-header'>
-            <h1>Sign Up</h1>
+            <h1>Register Yourself</h1>
           </div>
 
           <form onSubmit={handleSubmit}>
@@ -101,6 +95,12 @@ export const Regsiter = () => {
             >
               Register
             </button>
+            <Link
+              to='/login'
+              className='link'
+            >
+              Already have an account? Log In
+            </Link>
           </form>
           {error && <span>{error}</span>}
         </div>

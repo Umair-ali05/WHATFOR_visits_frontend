@@ -20,7 +20,7 @@
   object-fit: cover;
 }
 .category .box::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -83,5 +83,29 @@
 }
 .control-btn .icon {
   font-size: 56px;
+}
+.layout {
+  width: 1411px;
+  height: auto;
+  flex-shrink: 0;
+}
+.typography {
+  color: #41604b !important;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 89%; /* 28.48px */
+}
+
+.explore {
+  color: #fff;
+  text-align: center;
+  font-family: Permanent Marker !important;
+  font-size: 55px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 89%;
 }
 /*---------------control-btn-------------*/

@@ -13,7 +13,7 @@ export const CommentForm = (props) => {
 
     try {
       const res = await axios.post(
-        `${baseUrl}${props.name}/${props._id}`,
+        `${baseUrl.url}${props.name}/${props._id}`,
         { text: comment },
         {
           headers: { Authorization: localStorage.getItem('Authorization') },
