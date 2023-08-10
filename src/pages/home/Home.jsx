@@ -8,7 +8,7 @@ export const Home = () => {
     <>
       <div className='layout'>
         <p className='typography'>WELCOME TO WHATFORD VISITS</p>;
-        <h1 className='explore'>EXPLORE NEW WORLDS WITH US</h1>;
+        <h1 className='explore'>EXPLORE NEW WATFORD WITH US</h1>;
       </div>
       <Category />
       {/* <Card posts={posts} /> */}
