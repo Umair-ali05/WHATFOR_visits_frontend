@@ -11,8 +11,6 @@ import Toast from '../../utils/utils';
 export const Login = () => {
   const userRef = useRef();
   const passRef = useRef();
-  const [error, setError] = useState();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

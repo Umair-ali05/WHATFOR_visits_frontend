@@ -58,18 +58,28 @@ form {
   margin: 0 auto !important;
 }
 .login-header {
-  max-width: 100%;
-  color: #41604B !important;
-  padding-bottom: 14px;
-  display: flex;
-  justify-content: center;
+  margin-top: 5px;
+  color: #41604b !important;
+
+  /* color: #fff; */
+  text-align: center;
+  font-family: Permanent Marker !important;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 89%;
 }
 .signup-header {
-  max-width: 100%;
-  margin: 0 auto;
-  color: #41604B !important;
-  display: flex;
-  justify-content: center;
+  margin-top: 5px;
+  color: #41604b !important;
+
+  /* color: #fff; */
+  text-align: center;
+  font-family: Permanent Marker !important;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 89%;
 }
 .class-mail {
   color: white !important;

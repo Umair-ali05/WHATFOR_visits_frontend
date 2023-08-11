@@ -4,10 +4,10 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { SingleCard } from '../blog/singleblog';
 import baseUrl from '../../urlConfigFile';
+import Toast from '../../utils/utils';
 
 export const SearchBar = () => {
   const [placeName, setPlaceName] = useState();
-  const [errors, setErrors] = useState();
   const location = useLocation();
   let placeType = location.pathname.split('/')[2];
   const onSubmit = async (e) => {
@@ -16,25 +16,25 @@ export const SearchBar = () => {
       const res = await axios.get(
         `${baseUrl.url}blogs/${placeType}/${placeName}`
       );
-
       if (res.data.post.success) {
+        Toast.successToastMessage(res.data.post.message);
+
         localStorage.setItem('post', JSON.stringify(res.data.post.post));
         window.location.replace('/single-Card');
-        // <SingleCard  />;
-      } else {
-        localStorage.setItem('error', res.data.err);
-        window.location.replace('/single-Card');
+        <SingleCard />;
       }
     } catch (error) {
-      localStorage.setItem('error', error.message);
-      window.location.replace('/single-Card');
+      if (error.response.data)
+        Toast.errorToastMessage(error.response.data.err.message);
+      else {
+        Toast.errorToastMessage(error.message);
+      }
     }
   };
 
   return (
     <form
       style={{
-        background: 'black',
         border: 'none',
         flexDirection: 'row',
         width: '24%',
@@ -49,7 +49,7 @@ export const SearchBar = () => {
         type='text'
         id='header-search'
         style={{
-          border: '1px solid orange',
+          border: '1px solid  #598c5e',
           marginBottom: '0',
           marginRight: '8px',
         }}
@@ -59,7 +59,8 @@ export const SearchBar = () => {
       <button
         style={{
           padding: '14px',
-          background: 'orange',
+          background: '#598c5e',
+          color: 'white',
           height: '30px',
           padding: '9px 10px',
         }}

@@ -29,23 +29,25 @@ export const CommentForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className='comment-form'>
-        <label htmlFor='comment'>Comment *</label>
-        <input
-          type='text'
-          id='comment'
-          required
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
-        <button
-          type='submit'
-          className='button'
-        >
-          Post
-        </button>
-      </div>
-    </form>
+    <div className='form-main-div'>
+      <form onSubmit={handleSubmit}>
+        <div className='comment-form'>
+          <label htmlFor='comment'>Comment *</label>
+          <input
+            type='text'
+            id='comment'
+            required
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <button
+            type='submit'
+            className='button'
+          >
+            Post
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
