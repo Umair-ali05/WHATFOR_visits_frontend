@@ -1,6 +1,6 @@
 .singlePage {
   padding: 50px 0;
-  background: #6BAB96;
+  background: #6bab96;
 }
 .singlePage .right {
   margin-top: 20px;
@@ -8,14 +8,14 @@
   flex-direction: column;
   margin-left: 10px;
 }
-.App{
+.App {
   float: left;
 }
 .singlePage img {
   width: 400px;
   height: auto;
 }
-.singlePage .container .wrapper{
+.singlePage .container .wrapper {
   display: flex;
 }
 .singlePage h1 {
@@ -88,12 +88,12 @@
   font-family: serif;
   padding: 7px 18px;
   border-radius: 5px;
-  background-color: #cf843c;
+  background-color: #598c5e;
   color: white;
 }
-.page-des{
+.page-des {
   color: white !important;
 }
-.right{
+.right {
   color: white;
 }

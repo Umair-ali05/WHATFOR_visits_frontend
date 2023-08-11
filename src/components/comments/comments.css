@@ -1,33 +1,44 @@
-.main{
-  border-radius: 20px 40px 20px 0px;
-  overflow: hidden;
-  perspective: 1px;
-  background: #b0b0b0;
-  margin: 10px;
-  padding: 10px;
+.main {
+  margin-top: 25px;
+}
+
+.before-comment {
+  margin-top: 50px;
 }
 
 .item-date {
-  font-size: 12px;
-  padding-left: 6px;
+  width: auto;
   color: white;
-  
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 .item-text {
   padding-left: 6px;
-  font-size: 15px;
+  font-size: 18px;
   padding-top: 10px;
   display: block;
   color: white;
 }
+.hr {
+  margin: 5px;
+  color: #598c5e;
+}
 .item-username {
-  padding-left: 6px;
-  font-size: 20px;
-  color: #cf843c;
+  width: auto;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 25.621px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .reply-btn {
-  background: #ff0101;
+  margin-top: 10px;
+  background-color: #598c5e;
   color: white;
   padding: 7px;
   border-radius: 3px;

@@ -1,37 +1,37 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
-import "./details.css";
-import "../../components/header/header.css";
+import React, { useEffect, useState } from 'react';
+import './details.css';
+import '../../components/header/header.css';
 
-import { useLocation } from "react-router-dom";
-import axios from "axios";
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
-import { BsPencilSquare } from "react-icons/bs";
-import { AiOutlineDelete } from "react-icons/ai";
-import { decodeToken } from "react-jwt";
-import { Comments } from "../../components/comments/commets";
-import { CommentForm } from "../../components/comments/commentsFrom";
-import { GetRating, RatingBlog } from "../../components/rating/rating";
-import baseUrl from "../../urlConfigFile";
+import { BsPencilSquare } from 'react-icons/bs';
+import { AiOutlineDelete } from 'react-icons/ai';
+import { decodeToken } from 'react-jwt';
+import { Comments } from '../../components/comments/commets';
+import { CommentForm } from '../../components/comments/commentsFrom';
+import { GetRating, RatingBlog } from '../../components/rating/rating';
+import baseUrl from '../../urlConfigFile';
 
 export const DetailsPages = () => {
   const location = useLocation();
 
-  let admin = localStorage.getItem("Authorization");
+  let admin = localStorage.getItem('Authorization');
   let mainUser;
   if (admin) {
     mainUser = decodeToken(admin);
   } else {
-    mainUser = "";
+    mainUser = '';
   }
 
   // step 4 for update
   const [title, setTitle] = useState();
   const [name, setName] = useState();
   const [desc, setDesc] = useState();
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
   const [rating, setRating] = useState();
   const [image, setImage] = useState();
   const [comments, setComments] = useState([]);
@@ -62,7 +62,7 @@ export const DetailsPages = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(`${baseUrl.url}${location.pathname}`, {
-        headers: { Authorization: localStorage.getItem("Authorization") },
+        headers: { Authorization: localStorage.getItem('Authorization') },
       });
       window.location.replace(`/blogs/${post.post.post.placeType}`);
     } catch (error) {
@@ -80,7 +80,7 @@ export const DetailsPages = () => {
           placeDescription: desc,
         },
         {
-          headers: { Authorization: localStorage.getItem("Authorization") },
+          headers: { Authorization: localStorage.getItem('Authorization') },
         }
       );
       window.location.reload(location.pathname);
@@ -89,35 +89,35 @@ export const DetailsPages = () => {
 
   return (
     <>
-      <section className="singlePage">
-        <div className="container">
-          <div className="wrapper">
-            <div className="left">
-              <img src={image} alt="" />
+      <section className='singlePage'>
+        <div className='container'>
+          <div className='wrapper'>
+            <div className='left'>
+              <img
+                src={image}
+                alt=''
+              />
             </div>
             {!mainUser ? (
-              <div className="right">
-                <div className="page-title">{title}</div>
-                <div className="user-rating">
-                  <GetRating rating={stars} />
-                </div>
-                <div className="page-name">{name}</div>
-                <div className="user-roll-name">{country}</div>
-                <div className="user-roll-name">{city}</div>
-                <div className="page-des">{desc}</div>
-                <div>
-                  {comments.length !== 0 ? (
-                    <Comments comments={comments} />
-                  ) : (
-                    <></>
-                  )}
+              <div className='right'>
+                <div className='right'>
+                  <div className='user-title'>{title}</div>
+                  <div className='user-rating'>
+                    <>
+                      <GetRating rating={stars} />
+                    </>
+                  </div>
+                  <div className='user-roll-name'>{name}</div>
+                  <div className='user-roll-name'>{country}</div>
+                  <div className='user-roll-name'>{city}</div>
+                  <div className='user-roll-desc'>{desc}</div>
                 </div>
               </div>
-            ) : mainUser.user.role === "Admin" ? (
-              <div className="right">
-                <div className="page-title">{title}</div>
+            ) : mainUser.user.role === 'Admin' ? (
+              <div className='right'>
+                <div className='page-title'>{title}</div>
                 <div>
-                  {localStorage.getItem("rated") ? (
+                  {localStorage.getItem('rated') ? (
                     <>
                       <GetRating rating={stars} />
                     </>
@@ -125,27 +125,36 @@ export const DetailsPages = () => {
                     <RatingBlog id={location.pathname} />
                   )}
                 </div>
-                <div className="page-name">{name}</div>
-                <div className="page-des">{desc}</div>
-                <div className="buttons">
-                  <button className="button" onClick={() => setUpdate(true)}>
+                <div className='page-name'>{name}</div>
+                <div className='page-des'>{desc}</div>
+                <div className='buttons'>
+                  <button
+                    className='button'
+                    onClick={() => setUpdate(true)}
+                  >
                     Edit Post <BsPencilSquare />
                   </button>
-                  <button className="button " onClick={handleDelete}>
+                  <button
+                    className='button '
+                    onClick={handleDelete}
+                  >
                     Delete Post <AiOutlineDelete />
                   </button>
                   {update && (
-                    <button className="button" onClick={handleUpdate}>
+                    <button
+                      className='button'
+                      onClick={handleUpdate}
+                    >
                       Update Post
                     </button>
                   )}
                 </div>
                 {update ? (
                   <input
-                    type="text"
-                    placeholder="title"
+                    type='text'
+                    placeholder='title'
                     value={name}
-                    className="updateInput"
+                    className='updateInput'
                     onChange={(e) => setName(e.target.value)}
                   />
                 ) : (
@@ -154,9 +163,9 @@ export const DetailsPages = () => {
                 {update ? (
                   <textarea
                     value={desc}
-                    cols="30"
-                    rows="10"
-                    className="updateInput"
+                    cols='30'
+                    rows='10'
+                    className='updateInput'
                     onChange={(e) => setDesc(e.target.value)}
                   ></textarea>
                 ) : (
@@ -165,10 +174,10 @@ export const DetailsPages = () => {
               </div>
             ) : (
               <>
-                <div className="right">
-                  <div className="user-title">{title}</div>
-                  <div className="user-rating">
-                    {localStorage.getItem("rated") ? (
+                <div className='right'>
+                  <div className='user-title'>{title}</div>
+                  <div className='user-rating'>
+                    {localStorage.getItem('rated') ? (
                       <>
                         <GetRating rating={stars} />
                       </>
@@ -176,35 +185,51 @@ export const DetailsPages = () => {
                       <RatingBlog id={location.pathname} />
                     )}
                   </div>
-                  <div className="user-roll-name">{name}</div>
-                  <div className="user-roll-name">{country}</div>
-                  <div className="user-roll-name">{city}</div>
-                  <div className="user-roll-desc">{desc}</div>
+                  <div className='user-roll-name'>{name}</div>
+                  <div className='user-roll-name'>{country}</div>
+                  <div className='user-roll-name'>{city}</div>
+                  <div className='user-roll-desc'>{desc}</div>
                 </div>
-               
               </>
             )}
           </div>
-{mainUser.user.role === "Admin"?( {comments.length !== 0 ? (
-                    <Comments className="comment-b1" comments={comments} />
-                  ) : (
-                    <></>
-                  )}
-                {show && (
-                  <CommentForm
-                    className="comment-b2"
-                    name="comment"
-                    _id={post.post.post._id}
-                  />
+          {mainUser && mainUser.user.role !== 'Admin' ? (
+            <div>
+              {comments.length !== 0 ? (
+                <Comments
+                  className='comment-b1'
+                  comments={comments}
+                />
+              ) : (
+                <></>
+              )}
+              {show && (
+                <CommentForm
+                  className='comment-b2'
+                  name='comment'
+                  _id={post.post.post._id}
+                />
+              )}
+              <button
+                className='comment-btn'
+                onClick={() => {
+                  setShow(true);
+                }}
+              >
+                Add a Comment
+              </button>
+            </div>
+          ) : (
+            <>
+              <div>
+                {comments.length !== 0 ? (
+                  <Comments comments={comments} />
+                ) : (
+                  <></>
                 )}
-                <button
-                  className="comment-btn"
-                  onClick={() => {
-                    setShow(true);
-                  }}
-                >
-                  Add a Comment
-                </button>):(<></>)}
+              </div>
+            </>
+          )}
         </div>
       </section>
     </>

@@ -1,36 +1,42 @@
 .item-date12 {
-    font-size: 6px;
-    color: white;
-  }
-  .main12{
-    border-radius: 20px 40px 20px 0px;
-    overflow: hidden;
-    perspective: 1px;
-    background: #666666;
-    margin: 10px 10px  5px 30px;
-    padding: 10px;
-  }
-  .item-text12 {
-    font-size: 10px;
-    padding-top: 10px;
-    display: block;
-   
-    color: white;
-  }
-  .item-username12 {
-    font-size: 13px;
-    color: #cf843c;
-  }
-  
-  .reply-btn {
-    background: #ff0101;
-    color: white;
-    padding: 7px;
-    border-radius: 3px;
-  }
-  
-  .item-reply-message {
-    font-size: 9px;
-    color: #5a4848;
-  }
-  
+  font-size: 10px;
+  color: white;
+}
+.main12 {
+  margin-top: 10px;
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #598c5e;
+  padding: 15px;
+}
+.item-text12 {
+  font-size: 18px;
+  padding-top: 10px;
+  display: block;
+
+  color: white;
+}
+.item-username12 {
+  width: 246.681px;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 22.514px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.reply-btn {
+  margin-top: 10px;
+  background-color: #598c5e;
+  color: white;
+  padding: 7px;
+  border-radius: 3px;
+}
+
+.item-reply-message {
+  font-size: 9px;
+  color: #5a4848;
+}

@@ -22,15 +22,25 @@ export const Comments = (props) => {
   };
 
   return (
-    <>
+    <div className='before-comment'>
       {props.comments.map((item) => (
         <div
           key={item._id}
           className='comment-item'
         >
           <div className='main'>
+            <hr className='hr'></hr>
             <div className='item-username'>{item.userName}</div>
-            <div className='item-date'>{item.date}</div>
+            <div className='item-date'>
+              {' '}
+              {new Date(item.date).toLocaleString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
+            </div>
             <div className='item-text'>{item.text}</div>
             {mainUser && (
               <div className='item-text'>{item.chatGPTResponse}</div>
@@ -57,6 +67,6 @@ export const Comments = (props) => {
           )}
         </div>
       ))}
-    </>
+    </div>
   );
 };
