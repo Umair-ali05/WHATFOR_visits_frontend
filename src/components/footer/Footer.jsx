@@ -9,10 +9,34 @@ export const Footer = () => {
       <footer className='boxItems footer-color'>
         <div className='container flex'>
           <div className='social'>
-            <BsFacebook className='icon' />
-            <RiInstagramFill className='icon' />
-            <AiFillTwitterCircle className='icon' />
-            <AiFillLinkedin className='icon' />
+            <a
+              href='https://www.facebook.com'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <BsFacebook className='icon' />
+            </a>
+            <a
+              href='https://www.instagram.com'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <RiInstagramFill className='icon' />
+            </a>
+            <a
+              href='https://www.twitter.com'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <AiFillTwitterCircle className='icon' />
+            </a>
+            <a
+              href='https://www.linkedin.com'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <AiFillLinkedin className='icon' />
+            </a>
           </div>
         </div>
       </footer>

@@ -150,10 +150,17 @@ export const DetailsPages = () => {
         <div className='container'>
           <div className='wrapper'>
             <div className='left'>
-              <img
-                src={image}
-                alt=''
-              />
+              <a
+                href={placeWebsite}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                {' '}
+                <img
+                  src={image}
+                  alt=''
+                />
+              </a>
             </div>
             {!mainUser ? (
               <>
