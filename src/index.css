@@ -32,21 +32,21 @@ textarea {
   cursor: pointer;
   text-decoration: none;
   list-style-type: none;
-  color: #6BAB96;
+  color: #6bab96;
 }
 ::placeholder {
   font-size: 17px;
 }
-.p-title p{
+.p-title p {
   color: white !important;
   margin-bottom: 10px !important;
   font-size: 18px;
   text-transform: capitalize;
 }
-.inputfile p{
-  color: #41604B !important;
+.inputfile p {
+  color: #41604b !important;
 }
-.description p{
+.description p {
   color: white !important;
 }
 .flex {
@@ -65,7 +65,7 @@ p {
   font-size: 15px;
 }
 label {
-  color: #6BAB96;
+  color: #6bab96;
   font-size: 13px;
 }
 /* select,

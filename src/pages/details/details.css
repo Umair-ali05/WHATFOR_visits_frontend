@@ -79,7 +79,16 @@
 } */
 
 .user-role-desc {
-  text-align: center;
+  text-align: justify;
+  font-size: 15px;
+}
+.user-website a {
+  font-size: 16px;
+  color: white; /* Change this color to your preferred color */
+  text-decoration: underline;
+}
+.icon {
+  margin-right: 8px;
 }
 .comment-btn {
   border: 1px solid transparent;

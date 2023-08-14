@@ -27,6 +27,10 @@
   font-weight: 600;
   line-height: normal;
 }
+.reply-comment-image {
+  border: none;
+  background-color: #6bab96;
+}
 
 .reply-btn {
   margin-top: 10px;
@@ -35,7 +39,9 @@
   padding: 7px;
   border-radius: 3px;
 }
-
+.comment-image {
+  margin: 20px;
+}
 .item-reply-message {
   font-size: 9px;
   color: #5a4848;

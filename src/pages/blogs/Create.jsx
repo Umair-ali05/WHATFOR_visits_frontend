@@ -13,6 +13,10 @@ export const Create = () => {
   const [placeCountry, setCountry] = useState('');
   const [placeCity, setCity] = useState('');
   const [placeName, setTitle] = useState('');
+  const [placeAddress, setAddress] = useState('');
+  const [placeWebsite, setWebsite] = useState('');
+  const [placePhone, setPhone] = useState('');
+  const [placeTime, setTime] = useState('');
   const [placeDescription, setDesc] = useState('');
   const [file, setFile] = useState(null);
   const [category, setCategory] = useState([]);
@@ -74,6 +78,10 @@ export const Create = () => {
     data.append('placeType', placeType);
     data.append('placeCountry', placeCountry);
     data.append('placeCity', placeCity);
+    data.append('placeAddress', placeAddress);
+    data.append('placePhone', placePhone);
+    data.append('placeWebsite', placeWebsite);
+    data.append('placeTime', placeTime);
     data.append('image', file);
     data.append('placeDescription', placeDescription);
     data.append('recommendation', recommendation);
@@ -181,6 +189,38 @@ export const Create = () => {
                 type='text'
                 placeholder='City'
                 onChange={(e) => setCity(e.target.value)}
+              />
+            </div>
+            <div className='p-title'>
+              <p>Address:</p>
+              <input
+                type='text'
+                placeholder='Address'
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+            <div className='p-title'>
+              <p>Phone Number:</p>
+              <input
+                type='text'
+                placeholder='PhoneNumber'
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+            <div className='p-title'>
+              <p>Website:</p>
+              <input
+                type='text'
+                placeholder='Website'
+                onChange={(e) => setWebsite(e.target.value)}
+              />
+            </div>
+            <div className='p-title'>
+              <p>Timing:</p>
+              <input
+                type='text'
+                placeholder='Timing'
+                onChange={(e) => setTime(e.target.value)}
               />
             </div>
             <span>Set Recommendation *</span>

@@ -14,6 +14,8 @@ import { Comments } from '../../components/comments/commets';
 import { CommentForm } from '../../components/comments/commentsFrom';
 import { GetRating, RatingBlog } from '../../components/rating/rating';
 import baseUrl from '../../urlConfigFile';
+import Toast from '../../utils/utils';
+import { FaMapMarkerAlt, FaPhone, FaClock, FaGlobe } from 'react-icons/fa';
 
 export const DetailsPages = () => {
   const location = useLocation();
@@ -33,6 +35,11 @@ export const DetailsPages = () => {
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
   const [rating, setRating] = useState();
+  const [file, setFile] = useState([]);
+  const [placeAddress, setAddress] = useState('');
+  const [placeWebsite, setWebsite] = useState('');
+  const [placePhone, setPhone] = useState('');
+  const [placeTime, setTime] = useState('');
   const [image, setImage] = useState();
   const [comments, setComments] = useState([]);
 
@@ -43,17 +50,35 @@ export const DetailsPages = () => {
   let [stars, setStars] = useState({});
 
   const getPost = async () => {
-    const res = await axios.get(`${baseUrl.url}${location.pathname}`);
-    setPost(res.data);
-    setName(res.data.post.post.placeName);
-    setStars(res.data.post.post);
-    setCountry(res.data.post.post.placeCountry);
-    setCity(res.data.post.post.placeCity);
-    setTitle(res.data.post.post.placeType);
-    setDesc(res.data.post.post.placeDescription);
-    setRating(res.data.post.post.rated);
-    setImage(res.data.post.post.placeImageUrl);
-    setComments(res.data.post.post.comments);
+    try {
+      const res = await axios.get(`${baseUrl.url}${location.pathname}`);
+
+      if (res.data.post.success) {
+        setPost(res.data);
+        setName(res.data.post.post.placeName);
+        setStars(res.data.post.post);
+        setCountry(res.data.post.post.placeCountry);
+        setCity(res.data.post.post.placeCity);
+        setTitle(res.data.post.post.placeType);
+        setAddress(res.data.post.post.placeAddress);
+        setWebsite(res.data.post.post.placeWebsite);
+        setPhone(res.data.post.post.placePhone);
+        setTime(res.data.post.post.placeTime);
+        setDesc(res.data.post.post.placeDescription);
+        setRating(res.data.post.post.rated);
+        setImage(res.data.post.post.placeImageUrl);
+        setComments(res.data.post.post.comments);
+        Toast.successToastMessage(res.data.post.message);
+      } else {
+        Toast.errorToastMessage(res.data.post.message);
+      }
+    } catch (error) {
+      if (error.response.data)
+        Toast.errorToastMessage(error.response.data.err.message);
+      else {
+        Toast.errorToastMessage(error.message);
+      }
+    }
   };
   useEffect(() => {
     getPost();
@@ -61,30 +86,62 @@ export const DetailsPages = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`${baseUrl.url}${location.pathname}`, {
+      const res = await axios.delete(`${baseUrl.url}${location.pathname}`, {
         headers: { Authorization: localStorage.getItem('Authorization') },
       });
       window.location.replace(`/blogs/${post.post.post.placeType}`);
+      if (res.data.user.success) {
+        Toast.successToastMessage(res.data.user.message);
+        window.location.replace('/login');
+      } else {
+        Toast.errorToastMessage(res.data.user.message);
+      }
     } catch (error) {
-      console.log(error.message);
+      if (error.response.data)
+        Toast.errorToastMessage(error.response.data.err.message);
+      else {
+        Toast.errorToastMessage(error.message);
+      }
     }
   };
 
   // setp 4
   const handleUpdate = async () => {
     try {
-      await axios.put(
+      const formData = new FormData();
+      formData.append('placeName', name);
+      formData.append('placeDescription', desc);
+      formData.append('placeAddress', placeAddress);
+      formData.append('placeWebsite', placeWebsite);
+      formData.append('placePhone', placePhone);
+      formData.append('placeTime', placeTime);
+      formData.append('image', file);
+      // ... append other fields
+
+      const res = await axios.put(
         `${baseUrl.url}${location.pathname}`,
+        formData,
         {
-          placeName: name,
-          placeDescription: desc,
-        },
-        {
-          headers: { Authorization: localStorage.getItem('Authorization') },
+          headers: {
+            Authorization: localStorage.getItem('Authorization'),
+            'Content-Type': 'multipart/form-data',
+          },
         }
       );
-      window.location.reload(location.pathname);
-    } catch (error) {}
+
+      if (res.data.post.success) {
+        Toast.successToastMessage(res.data.post.message);
+        window.location.reload(location.pathname);
+      } else {
+        Toast.errorToastMessage(res.data.post.message);
+      }
+    } catch (error) {
+      if (error.response.data)
+        Toast.errorToastMessage(error.response.data.err.message);
+      else {
+        Toast.errorToastMessage(error.message);
+      }
+    }
   };
 
   return (
@@ -99,34 +156,75 @@ export const DetailsPages = () => {
               />
             </div>
             {!mainUser ? (
-              <div className='right'>
+              <>
                 <div className='right'>
                   <div className='user-title'>{title}</div>
                   <div className='user-rating'>
-                    <>
-                      <GetRating rating={stars} />
-                    </>
+                    <GetRating rating={stars} />
                   </div>
                   <div className='user-roll-name'>{name}</div>
                   <div className='user-roll-name'>{country}</div>
                   <div className='user-roll-name'>{city}</div>
+                  <div className='user-roll-name'>
+                    <FaMapMarkerAlt className='icon' />
+                    {placeAddress}
+                  </div>
+                  <div className='user-roll-name'>
+                    <FaPhone className='icon' />
+                    {placePhone}
+                  </div>
+                  <div className='user-roll-name'>
+                    <FaClock className='icon' />
+                    {placeTime}
+                  </div>
+                  <div className='user-website'>
+                    <FaGlobe className='icon' />
+                    <a
+                      href={placeWebsite}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {placeWebsite}
+                    </a>
+                  </div>
                   <div className='user-roll-desc'>{desc}</div>
                 </div>
-              </div>
+              </>
             ) : mainUser.user.role === 'Admin' ? (
               <div className='right'>
-                <div className='page-title'>{title}</div>
-                <div>
-                  {localStorage.getItem('rated') ? (
-                    <>
-                      <GetRating rating={stars} />
-                    </>
-                  ) : (
-                    <RatingBlog id={location.pathname} />
-                  )}
+                <div className='user-title'>{title}</div>
+                <div className='user-rating'>
+                  <div className='user-rating'>
+                    <GetRating rating={stars} />
+                  </div>
+                </div>{' '}
+                <div className='user-roll-name'>{name}</div>
+                <div className='user-roll-name'>{country}</div>
+                <div className='user-roll-name'>{city}</div>
+                <div className='user-roll-name'>
+                  {' '}
+                  <FaMapMarkerAlt className='icon' />
+                  {placeAddress}
                 </div>
-                <div className='page-name'>{name}</div>
-                <div className='page-des'>{desc}</div>
+                <div className='user-roll-name'>
+                  <FaPhone className='icon' />
+                  {placePhone}
+                </div>
+                <div className='user-roll-name'>
+                  <FaClock className='icon' />
+                  {placeTime}
+                </div>
+                <div className='user-website'>
+                  <FaGlobe className='icon' />
+                  <a
+                    href={placeWebsite}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    {placeWebsite}
+                  </a>
+                </div>
+                <div className='user-roll-desc'>{desc}</div>
                 <div className='buttons'>
                   <button
                     className='button'
@@ -149,28 +247,6 @@ export const DetailsPages = () => {
                     </button>
                   )}
                 </div>
-                {update ? (
-                  <input
-                    type='text'
-                    placeholder='title'
-                    value={name}
-                    className='updateInput'
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                ) : (
-                  <h1>{post.title}</h1>
-                )}
-                {update ? (
-                  <textarea
-                    value={desc}
-                    cols='30'
-                    rows='10'
-                    className='updateInput'
-                    onChange={(e) => setDesc(e.target.value)}
-                  ></textarea>
-                ) : (
-                  <p>{post.desc}</p>
-                )}
               </div>
             ) : (
               <>
@@ -188,6 +264,29 @@ export const DetailsPages = () => {
                   <div className='user-roll-name'>{name}</div>
                   <div className='user-roll-name'>{country}</div>
                   <div className='user-roll-name'>{city}</div>
+                  <div className='user-roll-name'>
+                    {' '}
+                    <FaMapMarkerAlt className='icon' />
+                    {placeAddress}
+                  </div>
+                  <div className='user-roll-name'>
+                    <FaPhone className='icon' />
+                    {placePhone}
+                  </div>
+                  <div className='user-roll-name'>
+                    <FaClock className='icon' />
+                    {placeTime}
+                  </div>
+                  <div className='user-website'>
+                    <FaGlobe className='icon' />
+                    <a
+                      href={placeWebsite}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {placeWebsite}
+                    </a>
+                  </div>
                   <div className='user-roll-desc'>{desc}</div>
                 </div>
               </>
@@ -229,6 +328,57 @@ export const DetailsPages = () => {
                 )}
               </div>
             </>
+          )}
+          {update && (
+            <div>
+              <input
+                type='file'
+                accept='image/*'
+                onChange={(e) => setFile(e.target.files[0])}
+              />
+              <input
+                type='text'
+                placeholder='Title'
+                value={name}
+                className='updateInput'
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input
+                type='text'
+                placeholder='Address'
+                value={placeAddress}
+                className='updateInput'
+                onChange={(e) => setAddress(e.target.value)}
+              />
+              <input
+                type='text'
+                placeholder='Website'
+                value={placeWebsite}
+                className='updateInput'
+                onChange={(e) => setWebsite(e.target.value)}
+              />
+              <input
+                type='text'
+                placeholder='Phone'
+                value={placePhone}
+                className='updateInput'
+                onChange={(e) => setPhone(e.target.value)}
+              />
+              <input
+                type='text'
+                placeholder='Time'
+                value={placeTime}
+                className='updateInput'
+                onChange={(e) => setTime(e.target.value)}
+              />
+
+              <input
+                type='text'
+                placeholder='Description'
+                className='updateInput'
+                onChange={(e) => setDesc(e.target.value)}
+              />
+            </div>
           )}
         </div>
       </section>
