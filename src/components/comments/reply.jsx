@@ -20,6 +20,17 @@ export const Reply = (props) => {
                 minute: '2-digit',
               })}
             </div>
+            {item.replyImageUrl ? (
+              <div>
+                <img
+                  className='comment-image'
+                  src={item.replyImageUrl}
+                  alt=''
+                />
+              </div>
+            ) : (
+              <></>
+            )}
             <div className='item-text12'>{item.text}</div>
           </div>
         </>

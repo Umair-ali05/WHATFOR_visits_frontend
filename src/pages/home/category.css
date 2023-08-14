@@ -85,7 +85,7 @@
   font-size: 56px;
 }
 .layout {
-  width: 1411px;
+  width: auto;
   height: auto;
   flex-shrink: 0;
 }
@@ -97,6 +97,31 @@
   font-style: normal;
   font-weight: 800;
   line-height: 89%; /* 28.48px */
+}
+
+.aboutus-title {
+  margin: 15px;
+  color: #41604b !important;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 89%;
+}
+
+.aboutus-paragraph {
+  color: #fff !important;
+  width: auto !important;
+  font-family: Permanent Marker !important;
+
+  text-align: justify;
+  font-size: 20px;
+}
+
+.aboutus {
+  margin: 15px;
+  width: auto;
 }
 
 .explore {

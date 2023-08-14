@@ -41,6 +41,7 @@ export const Comments = (props) => {
                 minute: '2-digit',
               })}
             </div>
+
             <div className='item-text'>{item.text}</div>
             {mainUser && (
               <div className='item-text'>{item.chatGPTResponse}</div>
