@@ -260,13 +260,9 @@ export const DetailsPages = () => {
                 <div className='right'>
                   <div className='user-title'>{title}</div>
                   <div className='user-rating'>
-                    {localStorage.getItem('rated') ? (
-                      <>
-                        <GetRating rating={stars} />
-                      </>
-                    ) : (
-                      <RatingBlog id={location.pathname} />
-                    )}
+                    <div className='user-rating'>
+                      <GetRating rating={stars} />
+                    </div>
                   </div>
                   <div className='user-roll-name'>{name}</div>
                   <div className='user-roll-name'>{country}</div>
@@ -300,31 +296,35 @@ export const DetailsPages = () => {
             )}
           </div>
           {mainUser && mainUser.user.role !== 'Admin' ? (
-            <div>
-              {comments.length !== 0 ? (
-                <Comments
-                  className='comment-b1'
-                  comments={comments}
-                />
-              ) : (
-                <></>
-              )}
-              {show && (
-                <CommentForm
-                  className='comment-b2'
-                  name='comment'
-                  _id={post.post.post._id}
-                />
-              )}
-              <button
-                className='comment-btn'
-                onClick={() => {
-                  setShow(true);
-                }}
-              >
-                Add a Comment
-              </button>
-            </div>
+            <>
+              <div className='give-rating'> Add Rating</div>
+              <RatingBlog id={location.pathname} />
+              <div>
+                {comments.length !== 0 ? (
+                  <Comments
+                    className='comment-b1'
+                    comments={comments}
+                  />
+                ) : (
+                  <></>
+                )}
+                {show && (
+                  <CommentForm
+                    className='comment-b2'
+                    name='comment'
+                    _id={post.post.post._id}
+                  />
+                )}
+                <button
+                  className='comment-btn'
+                  onClick={() => {
+                    setShow(true);
+                  }}
+                >
+                  Add a Comment
+                </button>
+              </div>
+            </>
           ) : (
             <>
               <div>

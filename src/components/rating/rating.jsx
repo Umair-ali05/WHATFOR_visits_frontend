@@ -5,6 +5,7 @@ import { Rating } from 'react-simple-star-rating';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import baseUrl from '../../urlConfigFile';
+import Toast from '../../utils/utils';
 
 export const RatingBlog = (props) => {
   const location = useLocation();
@@ -31,15 +32,18 @@ export const RatingBlog = (props) => {
           headers: { Authorization: localStorage.getItem('Authorization') },
         }
       );
-
-      window.location.replace(`${location.pathname}`);
-      if (res.data) {
-        localStorage.setItem('rated', true);
+      if (res.data.user.success) {
+        Toast.successToastMessage(res.data.user.message);
         window.location.replace(`${location.pathname}`);
+      } else {
+        Toast.errorToastMessage(res.data.user.message);
       }
     } catch (error) {
-      window.location.replace(`${location.pathname}`);
-      localStorage.setItem('rated', true);
+      if (error.response.data)
+        Toast.errorToastMessage(error.response.data.err.message);
+      else {
+        Toast.errorToastMessage(error.message);
+      }
     }
   };
 
